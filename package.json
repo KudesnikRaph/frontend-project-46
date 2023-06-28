@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "frontend-project-46",
-  "main": "index.js",
+  "main": "./src/index.js",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
@@ -18,6 +18,7 @@
   "bugs": {
     "url": "https://github.com/KudesnikRaf/frontend-project-46/issues"
   },
+  "type": "module", 
   "homepage": "https://github.com/KudesnikRaf/frontend-project-46#readme",
   "dependencies": {
     "commander": "^11.0.0",
