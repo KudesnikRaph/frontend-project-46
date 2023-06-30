@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import * as fs from "node: fs";
+import * as fs from "fs";
 import _ from "lodash";
 import path from 'path'; 
 
