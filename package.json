@@ -25,5 +25,8 @@
     "lodash": "^4.17.21",
     "make": "^0.8.1",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
