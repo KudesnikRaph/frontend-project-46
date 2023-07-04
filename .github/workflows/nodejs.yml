@@ -10,5 +10,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-      - run: make install
       - run: make test
+      - run: make lint
+      - name: Test & publish code coverage
+        # Publish code coverage on Code Climate
+        # https://github.com/paambaati/codeclimate-action
+        uses: paambaati/codeclimate-action@v3.0.0
+        # Add Code Climate secret key
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true
