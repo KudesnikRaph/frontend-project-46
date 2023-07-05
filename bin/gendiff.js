@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { program } from "commander";
-import gendiff from "../src/index.js";
+import genDiff from "../src/index.js";
 
   program
   
@@ -8,6 +8,6 @@ import gendiff from "../src/index.js";
     .version('1.0.0', '-V, --version', 'output the version number')
     .option('-f, --format <type>', 'output format')
     .argument('<filepath1> <filepath2>')
-    .action(gendiff);
+    .action(genDiff);
   
   program.parse();
