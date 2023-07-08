@@ -22,6 +22,7 @@
   "homepage": "https://github.com/KudesnikRaf/frontend-project-46#readme",
   "dependencies": {
     "commander": "^11.0.0",
+<<<<<<< HEAD
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
     "make": "^0.8.1",
@@ -29,5 +30,8 @@
   },
   "devDependencies": {
     "jest": "^29.5.0"
+=======
+    "make": "^0.8.1"
+>>>>>>> parent of c73d130 (npm i lodash)
   }
 }
