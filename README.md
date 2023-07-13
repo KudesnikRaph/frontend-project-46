@@ -18,7 +18,7 @@ gendiff -h
 
 ## Run to see differences in the json files
 ```
-gendiff filepath1 filepath2
+gendiff file1 file2
 ```
 
 [![asciicast](https://asciinema.org/a/NJt80GN1hsij7PpZjyNrkjB2A.svg)](https://asciinema.org/a/NJt80GN1hsij7PpZjyNrkjB2A)
