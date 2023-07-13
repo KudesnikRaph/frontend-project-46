@@ -20,3 +20,5 @@ gendiff -h
 ```
 gendiff filepath1 filepath2
 ```
+
+[![asciicast](https://asciinema.org/a/NJt80GN1hsij7PpZjyNrkjB2A.svg)](https://asciinema.org/a/NJt80GN1hsij7PpZjyNrkjB2A)
