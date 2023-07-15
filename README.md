@@ -1,8 +1,8 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/KudesnikRaf/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/KudesnikRaf/frontend-project-46/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b4f710fcd370dcc880f3/maintainability)](https://codeclimate.com/github/KudesnikRaf/frontend-project-46/maintainability)
-<!-- [![.github/workflows/nodejs.yml](https://github.com/KudesnikRaf/frontend-project-46/actions/workflows/nodejs.yml/badge.svg)](https://github.com/KudesnikRaf/frontend-project-46/actions/workflows/nodejs.yml) -->
-<!-- [![Test Coverage](https://api.codeclimate.com/v1/badges/b4f710fcd370dcc880f3/test_coverage)](https://codeclimate.com/github/KudesnikRaf/frontend-project-46/test_coverage) -->
+[![.github/workflows/nodejs.yml](https://github.com/KudesnikRaf/frontend-project-46/actions/workflows/nodejs.yml/badge.svg)](https://github.com/KudesnikRaf/frontend-project-46/actions/workflows/nodejs.yml)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/b4f710fcd370dcc880f3/test_coverage)](https://codeclimate.com/github/KudesnikRaf/frontend-project-46/test_coverage)
 -----
 ### Description: It's my second project Hexlet college
 ## Setup
@@ -21,4 +21,4 @@ gendiff -h
 gendiff filepath1 filepath2
 ```
 
-[![asciicast](https://asciinema.org/a/NJt80GN1hsij7PpZjyNrkjB2A.svg)](https://asciinema.org/a/NJt80GN1hsij7PpZjyNrkjB2A)
+[![asciicast](https://asciinema.org/a/Vok7yUojsMZFpHq8TkRYTvzpF.svg)](https://asciinema.org/a/Vok7yUojsMZFpHq8TkRYTvzpF)
