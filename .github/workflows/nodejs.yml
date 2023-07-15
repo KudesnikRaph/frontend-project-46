@@ -1,15 +1,25 @@
 name: Node CI
+
 on:
   - push
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - name: SetUp node.js
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
+      - run: make install
       - run: make test
       - run: make lint
-      
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: 8e510ca752e538d443b6fd94da6bfc7be8d7ff6fdf77d86e2689d4906c6bdb0c
+        with:
+          coverageCommand: make test-coverage
+          debug: true
