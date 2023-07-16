@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "npx jest",
-    "start": "node gendiff __fixtures__/file1.json __fixtures__/file2.json"
+    "start": "node gendiff file1.json file2.json",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
