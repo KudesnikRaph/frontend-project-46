@@ -1,22 +1,34 @@
-/* eslint-disable max-len */
-// Импортируем модуль для тестирования
+/* eslint-disable no-underscore-dangle */
+import * as path from 'path';
+import { fileURLToPath } from 'url';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { test, expect } from '@jest/globals';
-// Импортируем функцию gendiff из вашего кода
+import { describe, test, expect } from '@jest/globals';
 import gendiff from '../src/index.js';
-// Определяем пути к файлам с данными
-const file1 = './bin/file1.json';
-const file2 = './bin/file2.json';
-// Определяем ожидаемый результат сравнения
-const expected = `{
-  - follow: false
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const getFixturePath = (filename) => path.join(__dirname, '.', '__fixtures__', filename);
+
+describe('basic', () => {
+  const expected = `{
+    - follow: false
     host: hexlet.io
-  - proxy: 123.234.53.22
-  - timeout: 50
-  + timeout: 20
-  + verbose: true
-}`;
-// Написываем тест, который вызывает функцию gendiff с файлами и сравнивает ее вывод с ожидаемым результатом
-test('gendiff compares flat json files correctly', () => {
-  expect(gendiff(file1, file2)).toEqual(expected);
+    - proxy: 123.234.53.22
+    - timeout: 50
+    + timeout: 20
+    + verbose: true
+  }`;
+
+  test('json type', () => {
+    const file1json = 'file1.json';
+    const file2json = 'file2.json';
+    expect(gendiff(getFixturePath(file1json), getFixturePath(file2json))).toEqual(expected);
+  });
+
+  test('yaml type', () => {
+    const file1yml = 'file1.yml';
+    const file2yml = 'file2.yml';
+    expect(gendiff(getFixturePath(file1yml), getFixturePath(file2yml))).toEqual(expected);
+  });
 });
