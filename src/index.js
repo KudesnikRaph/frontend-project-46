@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /* eslint-disable no-return-assign */
-import fs from 'fs';
+// eslint-disable-next-line import/no-unresolved
 import _ from 'lodash';
+import parse from '../parsers.js';
 
 const stringify = (value, replacer = ' ', spacesCount = 2) => {
   const iteration = (el, counter) => {
@@ -18,8 +19,8 @@ const stringify = (value, replacer = ' ', spacesCount = 2) => {
 // Чтение содержимого файлов
 const gendiff = (file1, file2) => {
   const output = {};
-  const value1 = JSON.parse(fs.readFileSync(file1, 'utf8'));
-  const value2 = JSON.parse(fs.readFileSync(file2, 'utf8'));
+  const value1 = parse(file1);
+  const value2 = parse(file2);
   // Получение списка ключей из двух объектов
   const row1 = Object.keys(value1);
   const row2 = Object.keys(value2);
