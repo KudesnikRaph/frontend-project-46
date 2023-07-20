@@ -8,7 +8,6 @@ parserOptions:
 rules: 
   no-console: 0
   import/extensions:
-    - no-unused-vars
     - error
     - ignorePackages
     - js: always

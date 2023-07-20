@@ -1,6 +1,6 @@
 {
   "name": "@hexlet/code",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "frontend-project-46",
   "main": "src/index.js",
   "bin": {
@@ -30,6 +30,7 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
     "eslint": "^8.45.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",

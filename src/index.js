@@ -2,7 +2,7 @@
 /* eslint-disable no-return-assign */
 // eslint-disable-next-line import/no-unresolved
 import _ from 'lodash';
-import parse from '../parsers.js';
+import parse from './parsers.js';
 
 const stringify = (value, replacer = ' ', spacesCount = 2) => {
   const iteration = (el, counter) => {
@@ -19,8 +19,10 @@ const stringify = (value, replacer = ' ', spacesCount = 2) => {
 // Чтение содержимого файлов
 const gendiff = (file1, file2) => {
   const output = {};
+  // читает два файла в формате
   const value1 = parse(file1);
   const value2 = parse(file2);
+
   // Получение списка ключей из двух объектов
   const row1 = Object.keys(value1);
   const row2 = Object.keys(value2);
@@ -30,7 +32,7 @@ const gendiff = (file1, file2) => {
   sortedUnionRows.forEach((key) => {
     const keyValue1 = value1[key];
     const keyValue2 = value2[key];
-    if (keyValue1 === keyValue2) output[`  ${key}`] = keyValue1;
+    if (keyValue1 === keyValue2) output[`${key}`] = keyValue1;
     if (row1.includes(key) && !row2.includes(key)) output[`- ${key}`] = keyValue1;
     if (!row1.includes(key) && row2.includes(key)) output[`+ ${key}`] = keyValue2;
     if (row1.includes(key) && row2.includes(key) && keyValue1 !== keyValue2) {
