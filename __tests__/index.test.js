@@ -12,13 +12,13 @@ const getFixturePath = (filename) => path.join(__dirname, '.', '__fixtures__', f
 
 describe('basic', () => {
   const expected = `{
-    - follow: false
-    host: hexlet.io
-    - proxy: 123.234.53.22
-    - timeout: 50
-    + timeout: 20
-    + verbose: true
-  }`;
+  - follow: false
+  host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}`;
 
   test('json type', () => {
     const file1json = 'file1.json';
