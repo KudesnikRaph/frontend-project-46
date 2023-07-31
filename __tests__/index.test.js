@@ -1,3 +1,5 @@
+/* eslint-disable eol-last */
+/* eslint-disable padded-blocks */
 /* eslint-disable no-underscore-dangle */
 import * as path from 'path';
 import { fileURLToPath } from 'url';
@@ -30,5 +32,62 @@ describe('basic', () => {
     const file1yml = 'file1.yml';
     const file2yml = 'file2.yml';
     expect(gendiff(getFixturePath(file1yml), getFixturePath(file2yml))).toEqual(expected);
+  });
+});
+
+describe('trees', () => {
+  const result = `{
+    common: {
+      + follow: false
+        setting1: Value 1
+      - setting2: 200
+      - setting3: true
+      + setting3: null
+      + setting4: blah blah
+      + setting5: {
+            key5: value5
+        }
+        setting6: {
+            doge: {
+              - wow: 
+              + wow: so much
+            }
+            key: value
+          + ops: vops
+        }
+    }
+    group1: {
+      - baz: bas
+      + baz: bars
+        foo: bar
+      - nest: {
+            key: value
+        }
+      + nest: str
+    }
+  - group2: {
+        abc: 12345
+        deep: {
+            id: 45
+        }
+    }
+  + group3: {
+        deep: {
+            id: {
+                number: 45
+            }
+        }
+        fee: 100500
+    }
+}`;
+  test('json type', () => {
+    const tree1json = 'tree1.json';
+    const tree2json = 'tree2.json';
+    expect(gendiff(getFixturePath(tree1json), getFixturePath(tree2json))).toEqual(result);
+  });
+  test('yaml type', () => {
+    const tree1yml = 'tree1.yml';
+    const tree2yml = 'tree2.yml';
+    expect(gendiff(getFixturePath(tree1yml), getFixturePath(tree2yml))).toEqual(result);
   });
 });
