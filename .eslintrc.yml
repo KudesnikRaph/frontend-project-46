@@ -7,6 +7,8 @@ parserOptions:
   sourceType: module
 rules: 
   no-console: 0
+  consistent-return: 0
+  import/no-extraneous-dependencies: 0
   import/extensions:
     - error
     - ignorePackages

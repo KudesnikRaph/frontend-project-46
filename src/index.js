@@ -1,8 +1,11 @@
 #!/usr/bin/env node
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-return-assign */
 // eslint-disable-next-line import/no-unresolved
 import _ from 'lodash';
 import parse from './parsers.js';
+// eslint-disable-next-line import/no-unresolved
+import stylishDiff from './stylish.js';
 
 const stringify = (value, replacer = ' ', spacesCount = 2) => {
   const iteration = (el, counter) => {
