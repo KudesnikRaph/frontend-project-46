@@ -1,41 +1,46 @@
-/* eslint-disable padded-blocks */
-/* eslint-disable indent */
-/* eslint-disable no-unused-vars */
 import _ from 'lodash';
-// import { log } from 'make';
+import { plainObj } from '../treeBuilder.js';
 
-// export default stylishDiff = (key, value, depth) => {
-//   if (!_.Object(value)) {
-//     return `${key}: ${value}`;
-//   }
-//   const indent = ' '.repeat(depth);
-//   const indentMinus = ' '.repeat(depth - 1);
-//   const string = Object.entries(value).flatMap(([key, ent]) => ` ${stylish(key, ent, indent + 2)}`);
+const commonStringify = (value, replacer = ' ', spacesCount = 1) => {
+  const iter = (el, counter) => {
+    const arr = Object.entries(el).map(([key, val]) => {
+      if (typeof val === 'object' && val) return (`${replacer.repeat(counter)}${key}: ${iter(val, counter + spacesCount)}`);
+      return (`${replacer.repeat(counter)}${key}: ${val}`);
+    });
+    const result = arr.join('\n');
+    return counter === spacesCount ? `{\n${result}\n}` : `{\n${result}\n${replacer.repeat(counter - spacesCount)}}`;
+  };
+  return typeof value !== 'object' ? `${value}` : iter(value, spacesCount);
+};
 
-//   return `${key}: {\n${indent}${string.join(`\n${indent}`)}}`
-// }
+const indent = (depth, spacesCount = 4) => ' '.repeat((depth * spacesCount) - 2);
 
-const BASE_INDENT = 2;
+const isBracketIndent = (depth, spacesCount = 4) => ' '.repeat((depth * spacesCount) - spacesCount);
 
-const renderWhitespaces = (amount) => {
-  let result = ''
-  for (0; amount--; amount) {
-    result = result + ' '
-  }
-  return result
-}
+export const stringify = (value) => {
+  if (plainObj(value)) return commonStringify(value);
 
-const a = {"a": 2,
-"b": 4,"c": {"d": 4,"e": 5}}
+  const iter = (currentValue, depth = 1) => {
+    if (!_.isObject(currentValue)) return `${currentValue}`;
 
-const style = (json, depth) => {
-  console.log("{")
-  console.log(Object.entries(json).forEach(([key, value]) => {
-    let indent = BASE_INDENT;
-    indent = typeof value === 'object' ? indent * depth : indent;
-    console.log(`${' '.repeat(indent)}${key}: ${value},`)
-  }))
-  console.log("}\n")
-}
+    const depthIndent = indent(depth);
+    const bracketIndent = isBracketIndent(depth);
+    const strings = Object
+      .entries(currentValue)
+      .map(([key, val]) => {
+        const keyElement = key[0];
+        if (keyElement === '+' || keyElement === '-') return `${depthIndent}${key}: ${iter(val, depth + 1)}`;
+        return `${depthIndent}  ${key}: ${iter(val, depth + 1)}`;
+      });
 
-style(a, 1);
+    return [
+      '{',
+      ...strings,
+      `${bracketIndent}}`,
+    ].join('\n');
+  };
+
+  return iter(value);
+};
+
+export default stringify;
