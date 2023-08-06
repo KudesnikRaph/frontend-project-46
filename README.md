@@ -31,4 +31,4 @@ gendiff file1.yml file2.yml
 ```
 gendiff tree1.json tree2.json
 ```
-[![asciicast](https://asciinema.org/a/Of6xIqJVNDHeqYMgiwO4bYuj8.svg)(https://asciinema.org/a/Of6xIqJVNDHeqYMgiwO4bYuj8)]
+[![asciicast](https://asciinema.org/a/Of6xIqJVNDHeqYMgiwO4bYuj8.svg)](https://asciinema.org/a/Of6xIqJVNDHeqYMgiwO4bYuj8)
