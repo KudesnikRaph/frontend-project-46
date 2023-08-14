@@ -260,9 +260,10 @@ describe('json formatters', () => {
       ],
     },
   ];
+
   test('json', () => {
     const jsonFile1 = 'tree1.json';
     const jsonFile2 = 'tree2.json';
-    expect(gendiff(getFixturePath(jsonFile1), getFixturePath(jsonFile2), 'json')).toEqual(jsonResult);
+    expect(gendiff(getFixturePath(jsonFile1), getFixturePath(jsonFile2), 'json')).toEqual(JSON.stringify(jsonResult));
   });
 });
