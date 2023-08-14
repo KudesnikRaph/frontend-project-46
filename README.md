@@ -39,3 +39,7 @@ gendiff --format plain tree1.json tree2.json
 ```
 [![asciicast](https://asciinema.org/a/2aGvFXriMXc10rMZa8vn32RPy.svg)](https://asciinema.org/a/2aGvFXriMXc10rMZa8vn32RPy)
 ---
+```
+gendiff -f json tree1.json tree2.json
+```
+[![asciicast](https://asciinema.org/a/aiW4ckUBxC2Sh7Ys7BbIPiRro.svg)](https://asciinema.org/a/aiW4ckUBxC2Sh7Ys7BbIPiRro)
