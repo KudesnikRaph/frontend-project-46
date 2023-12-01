@@ -75,14 +75,14 @@ describe('trees', () => {
 }`;
 
   test('json type', () => {
-    const tree1json = 'tree1.json';
-    const tree2json = 'tree2.json';
+    const tree1json = 'result1.json';
+    const tree2json = 'result2.json';
     expect(gendiff(getFixturePath(tree1json), getFixturePath(tree2json))).toEqual(result);
   });
 
   test('yaml type', () => {
-    const tree1yml = 'tree1.yml';
-    const tree2yml = 'tree2.yml';
+    const tree1yml = 'result1.yml';
+    const tree2yml = 'result2.yml';
     expect(gendiff(getFixturePath(tree1yml), getFixturePath(tree2yml))).toEqual(result);
   });
 });
@@ -101,8 +101,8 @@ Property 'group2' was removed
 Property 'group3' was added with value: [complex value]`;
 
   test('plain', () => {
-    const plainFile1 = 'tree1.json';
-    const plainFile2 = 'tree2.json';
+    const plainFile1 = 'result1.json';
+    const plainFile2 = 'result2.json';
     expect(gendiff(getFixturePath(plainFile1), getFixturePath(plainFile2), 'plain')).toEqual(plainResult);
   });
 });
@@ -262,8 +262,8 @@ describe('json formatters', () => {
   ];
 
   test('json', () => {
-    const jsonFile1 = 'tree1.json';
-    const jsonFile2 = 'tree2.json';
+    const jsonFile1 = 'result1.json';
+    const jsonFile2 = 'result2.json';
     expect(gendiff(getFixturePath(jsonFile1), getFixturePath(jsonFile2), 'json')).toEqual(JSON.stringify(jsonResult));
   });
 });
